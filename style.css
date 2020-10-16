@@ -70,14 +70,69 @@ body {
   background: black;
 }
 
+/* -Walls- */
 .wall {
-  border: 2px solid #18189e;
+  border: solid #18189e;
+  background-color: #18189e;
 }
 
-.block {
-  border: 2px solid #00ff1e;
+/*up right*/
+.wallur{
+  border: solid #18189e;
+  background-color: #18189e;
+  border-radius: 0px 5px 0px 0px;
+}
+
+/*up left*/
+.wallul{
+  border: solid #18189e;
+  background-color: #18189e;
+  border-radius: 5px 0px 0px 0px;
+}
+
+/*up left right*/
+.wallulr{
+  border: solid #18189e;
+  background-color: #18189e;
+  border-radius: 5px 5px 0px 0px;
+}
+
+/*down right */
+.walldr{
+  border: solid #18189e;
+  background-color: #18189e;
   border-radius: 0px 0px 0px 5px;
 }
+
+/*down left*/
+.walldl {
+  border: solid #18189e;
+  background-color: #18189e;
+  border-radius: 0px 0px 5px 0px;
+}
+
+/*down left right*/
+.walldlr {
+  border: solid #18189e;
+  background-color: #18189e;
+  border-radius: 0px 0px 5px 5px;
+}
+
+/*up down right*/
+.walludr {
+  border: solid #18189e;
+  background-color: #18189e;
+  border-radius: 0px 5px 5px 0px;
+}
+
+/*up down left*/
+.walludl {
+  border: solid #18189e;
+  background-color: #18189e;
+  border-radius: 5px 0px 0px 5px;
+}
+
+/*------------------------------*/
 
 .dot {
   background: #ffb897;
