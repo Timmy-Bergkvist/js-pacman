@@ -3,8 +3,9 @@
 }
 
 body {
-  background: url('background.jpg') no-repeat center center fixed;
+  background: url('./images/pacman_cabaret2.png') no-repeat center center fixed;
   background-size: cover;
+  background-color: black;
 }
 
 #wrapper {
@@ -53,6 +54,8 @@ body {
 
 #start-button {
   margin-top: 20px;
+  color: black;
+  background-color: #ffff00;
 }
 
 .hide {
@@ -68,17 +71,22 @@ body {
 }
 
 .wall {
-  border: 1px solid blue;
+  border: 2px solid #18189e;
+}
+
+.block {
+  border: 2px solid #00ff1e;
+  border-radius: 0px 0px 0px 5px;
 }
 
 .dot {
-  background: white;
+  background: #ffb897;
   border: 8px solid black;
   border-radius: 50%;
 }
 
 .pill {
-  background: white;
+  background: #ffb897;
   border: 5px solid black;
   border-radius: 50%;
 }
@@ -136,7 +144,7 @@ body {
 }
 
 .pacman {
-  background: yellow;
+  background: #ffff00;
   border: none;
   border-radius: 50%;
   clip-path: polygon(
