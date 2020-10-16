@@ -8,6 +8,7 @@ class GameBoard {
     }
 
     showGameStatus(gameWin) {
+        // Show game win or game over
         const div = document.createElement('div');
         div.classList.add('game-status');
         div.innerHTML = `${gameWin ? 'WIN!' : 'GAME OVER!'}`;
@@ -18,7 +19,7 @@ class GameBoard {
         this.dotCount = 0;
         this.grid = [];
         this.DOMGrid.innerHTML = '';
-        this.DOMGrid.style.cssText = `grid-template-colums: repeat(${GRID_SIZE}, ${CELL_SIZE}px)`;
+        this.DOMGrid.style.cssText = `grid-template-columns: repeat(${GRID_SIZE}, ${CELL_SIZE}px);`;
 
         level.forEach((square, i) => {
             const div = document.createElement('div');

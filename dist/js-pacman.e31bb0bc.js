@@ -286,6 +286,7 @@ var GameBoard = /*#__PURE__*/function () {
   (0, _createClass2.default)(GameBoard, [{
     key: "showGameStatus",
     value: function showGameStatus(gameWin) {
+      // Show game win or game over
       var div = document.createElement('div');
       div.classList.add('game-status');
       div.innerHTML = "".concat(gameWin ? 'WIN!' : 'GAME OVER!');
@@ -299,7 +300,7 @@ var GameBoard = /*#__PURE__*/function () {
       this.dotCount = 0;
       this.grid = [];
       this.DOMGrid.innerHTML = '';
-      this.DOMGrid.style.cssText = "grid-template-colums: repeat(".concat(_setup.GRID_SIZE, ", ").concat(_setup.CELL_SIZE, "px)");
+      this.DOMGrid.style.cssText = "grid-template-columns: repeat(".concat(_setup.GRID_SIZE, ", ").concat(_setup.CELL_SIZE, "px);");
       level.forEach(function (square, i) {
         var div = document.createElement('div');
         div.classList.add('square', _setup.CLASS_LIST[square]);
@@ -411,7 +412,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63871" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61356" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
