@@ -29,31 +29,51 @@ class GameBoard {
             this.grid.push(div);
 
             if (CLASS_LIST[square] === OBJECT_TYPE.DOT) this.dotCount++;
-        
         });
     }
 
     addObject(pos, classes) {
-        this.grid[pos].classList.add(...classes)
+        this.grid[pos].classList.add(...classes);
     }
 
     removeObject(pos, classes) {
-        this.grid[pos].classList.remove(...classes)
+        this.grid[pos].classList.remove(...classes);
     }
 
-    objectExist = (pos, object) => {
+    objectExist(pos, object) {
         return this.grid[pos].classList.contains(object);
-    }
+      };
 
     rotateDiv(pos, deg) {
         this.grid[pos].style.transform = `rotate(${deg}deg)`;
     }
 
-    static createGameBoard(DOMGrid, level) {
+    moveCharacter(character) {
+        if (character.shouldMove()) {
+          const { nextMovePos, direction } = character.getNextMove(
+            this.objectExist.bind(this)
+          );
+          const { classesToRemove, classesToAdd } = character.makeMove();
+    
+          if (character.rotation && nextMovePos !== character.pos) {
+            // Rotate
+            this.rotateDiv(nextMovePos, character.dir.rotation);
+            // Rotate the previous div back
+            this.rotateDiv(character.pos, 0);
+          }
+    
+          this.removeObject(character.pos, classesToRemove);
+          this.addObject(nextMovePos, classesToAdd);
+    
+          character.setNewPos(nextMovePos, direction);
+        }
+      }
+    
+      static createGameBoard(DOMGrid, level) {
         const board = new this(DOMGrid);
         board.createGrid(level);
         return board;
-    }
+      }
 }
 
 export default GameBoard;

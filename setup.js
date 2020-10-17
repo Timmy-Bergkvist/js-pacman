@@ -25,7 +25,6 @@ export const DIRECTIONS = {
 
 export const OBJECT_TYPE = {
   BLANK: 'blank',
-  
   WALL: 'wall',
   WALLUR: 'wallur', // ur = Up right
   WALLUL: 'wallul', // ul = Up left
@@ -35,7 +34,6 @@ export const OBJECT_TYPE = {
   WALLDLR: 'walldlr', // dlr = down left right
   WALLUDR: 'walludr', // udr = up down right
   WALLUDl: 'walludl', // udl = up down left
-
   DOT: 'dot',
   BLINKY: 'blinky',
   PINKY: 'pinky',
@@ -45,7 +43,7 @@ export const OBJECT_TYPE = {
   PACMAN: 'pacman',
   GHOST: 'ghost',
   SCARED: 'scared',
-  GHOSTLAIR: 'lair'
+  GHOSTLAIR: 'lair',
 };
 
 // Lookup array for classes
@@ -67,7 +65,7 @@ export const CLASS_LIST = [
   OBJECT_TYPE.WALLDL, // dl = up down left 14
   OBJECT_TYPE.WALLDLR, // dlr = down left right 15
   OBJECT_TYPE.WALLUDR, // udr = up down right 16
-  OBJECT_TYPE.WALLUDl,// udl = up down left 17
+  OBJECT_TYPE.WALLUDl, // udl = up down left 17
 ];
 
 // prettier-ignore

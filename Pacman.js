@@ -14,11 +14,11 @@ class Pacman {
         // Pacman does not move before a key is pressed
         if (!this.dir) return false;
 
-        if(this.timer === this.speed) {
+        if (this.timer === this.speed) {
             this.timmr = 0;
             return true;
         }
-        this.timer++
+        this.timer++;
     }
 
     getNextMove(objectExist) {
@@ -26,6 +26,14 @@ class Pacman {
         // If Pacman collide with a wall
         if (
             objectExist(nextMovePos, OBJECT_TYPE.WALL) ||
+            objectExist(nextMovePos, OBJECT_TYPE.WALLUR) ||
+            objectExist(nextMovePos, OBJECT_TYPE.WALLUL) ||
+            objectExist(nextMovePos, OBJECT_TYPE.WALLULR) ||
+            objectExist(nextMovePos, OBJECT_TYPE.WALLDR) ||
+            objectExist(nextMovePos, OBJECT_TYPE.WALLDL) ||
+            objectExist(nextMovePos, OBJECT_TYPE.WALLDLR) ||
+            objectExist(nextMovePos, OBJECT_TYPE.WALLUDR) ||
+            objectExist(nextMovePos, OBJECT_TYPE.WALLUDl) ||
             objectExist(nextMovePos, OBJECT_TYPE.GHOSTLAIR)
         ) {
             nextMovePos = this.pos;
@@ -54,7 +62,7 @@ class Pacman {
             return;
         }
 
-        const nextMovePos = this.pos + dir.movment;
+        const nextMovePos = this.pos + dir.movement;
         if (objectExist(nextMovePos, OBJECT_TYPE.WALL)) return;
         this.dir = dir;
     };
