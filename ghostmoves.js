@@ -19,9 +19,9 @@ export function randomMovement(position, direction, objectExist) {
         objectExist(nextMovePos, OBJECT_TYPE.WALLUDl) ||
         objectExist(nextMovePos, OBJECT_TYPE.GHOST)
     ) {
-        // Get a random key from the key array
-        const key = keys[Math.floor(Math.random() * keys.length)]
-        // Set the next move
+        // Get a random key from that array
+        const key = keys[Math.floor(Math.random() * keys.length)];
+        // Set the new direction
         dir = DIRECTIONS[key];
         // Set the next move
         nextMovePos = position + dir.movement;

@@ -12,17 +12,17 @@ class Pacman {
 
     shouldMove() {
         // Pacman does not move before a key is pressed
-        if (!this.dir) return false;
+        if (!this.dir) return;
 
         if (this.timer === this.speed) {
-            this.timmr = 0;
+            this.timer = 0;
             return true;
         }
         this.timer++;
     }
 
     getNextMove(objectExist) {
-        let nextMovePos = this.pos + this.dir.movment;
+        let nextMovePos = this.pos + this.dir.movement;
         // If Pacman collide with a wall
         if (
             objectExist(nextMovePos, OBJECT_TYPE.WALL) ||
@@ -43,17 +43,17 @@ class Pacman {
     }
 
     makeMove() {
-        const classesToRemove = [OBJECT_TYPE.PACKMAN];
+        const classesToRemove = [OBJECT_TYPE.PACMAN];
         const classesToAdd = [OBJECT_TYPE.PACMAN];
 
-        return { classesToRemove, classesToAdd }
+        return { classesToRemove, classesToAdd };
     }
 
     setNewPos(nextMovePos) {
         this.pos = nextMovePos;
     }
 
-    handleKeyInput(e, objectExist) {
+    handleKeyInput = (e, objectExist) => {
         let dir;
 
         if (e.keyCode >= 37 && e.keyCode <= 40) {

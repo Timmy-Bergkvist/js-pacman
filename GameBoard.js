@@ -19,6 +19,7 @@ class GameBoard {
         this.dotCount = 0;
         this.grid = [];
         this.DOMGrid.innerHTML = '';
+        // First set correct amount of columns based on Grid Size and Cell Size
         this.DOMGrid.style.cssText = `grid-template-columns: repeat(${GRID_SIZE}, ${CELL_SIZE}px);`;
 
         level.forEach((square, i) => {
@@ -28,6 +29,7 @@ class GameBoard {
             this.DOMGrid.appendChild(div);
             this.grid.push(div);
 
+            // Add dots
             if (CLASS_LIST[square] === OBJECT_TYPE.DOT) this.dotCount++;
         });
     }
@@ -39,7 +41,7 @@ class GameBoard {
     removeObject(pos, classes) {
         this.grid[pos].classList.remove(...classes);
     }
-
+    // Can have an arrow function here cause of this binding
     objectExist(pos, object) {
         return this.grid[pos].classList.contains(object);
       };

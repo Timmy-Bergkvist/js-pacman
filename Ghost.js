@@ -1,13 +1,14 @@
 import { DIRECTIONS, OBJECT_TYPE } from './setup';
+import { randomMovement } from './ghostmoves';
 
 class Ghost {
-    constructor(speen = 5, startPos, movment, name) {
+    constructor(speed = 5, startPos, movement, name) {
         this.name = name;
-        this.movment = movment;
+        this.movement = movement;
         this.startPos = startPos;
         this.pos = startPos;
         this.dir = DIRECTIONS.ArrowRight;
-        this.speed = speen;
+        this.speed = speed;
         this.timer = 0;
         this.isScared = false;
         this.rotation = false;
@@ -19,23 +20,22 @@ class Ghost {
             return true;
         }
         this.timer++;
-        return false;
     }
 
     getNextMove(objectExist) {
-        const { nextMovePos, direction } = this.movment(
+        const { nextMovePos, direction } = this.movement(
             this.pos,
             this.dir,
             objectExist
         );
-        return { nextMovePos, direction }
+        return { nextMovePos, direction };
     }
 
     makeMove() {
         const classesToRemove = [OBJECT_TYPE.GHOST, OBJECT_TYPE.SCARED, this.name];
         let classesToAdd = [OBJECT_TYPE.GHOST, this.name];
 
-        if(this.isScared) classesToAdd = [...classesToAdd, OBJECT_TYPE.SCARED];
+        if (this.isScared) classesToAdd = [...classesToAdd, OBJECT_TYPE.SCARED];
 
         return { classesToRemove, classesToAdd };
     }

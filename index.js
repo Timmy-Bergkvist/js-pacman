@@ -54,8 +54,8 @@ function startGame() {
 
     const ghosts = [
         // speed and driection
-        new Ghost(5, 200, randomMovement, OBJECT_TYPE.BLINKY),
-        new Ghost(7, 199, randomMovement, OBJECT_TYPE.PINKY),
+        new Ghost(6, 200, randomMovement, OBJECT_TYPE.BLINKY),
+        new Ghost(2, 199, randomMovement, OBJECT_TYPE.PINKY),
         new Ghost(3, 198, randomMovement, OBJECT_TYPE.INKY),
         new Ghost(2, 197, randomMovement, OBJECT_TYPE.CLYDE),
     ];
