@@ -23,18 +23,43 @@ let PowerPillActive = false;
 let PowerPillTimer = null;
 
 function gameOver(pacman, grid) {
+    document.removeEventListener('keydown', e => 
+        pacman.handleKeyInput(e, gameBoard.objectExist)
+        )
 
+        gameBoard.showGameStatus(gameWin);
+
+        clearInterval(timer);
+
+        startButton.classList.remove('hide')
 
 }
 
 function checkCollision(pacman, ghosts) {
-
+    const collidedGhost = ghosts.find( ghost => pacman.pos === ghost.pos);
+    if (collidedGhost) {
+        if (pacman.PowerPill) {
+            gameBoard.removeObject(collidedGhost.pos, [
+                OBJECT_TYPE.GHOST,
+                OBJECT_TYPE.SCARED,
+                collidedGhost.name
+            ]);
+            collidedGhost.pos = collidedGhost.startPos;
+            score += 100; // For every ghost that is eaten gives 100 points
+        } else {
+            gameBoard.removeObject(pacman.pos, [OBJECT_TYPE.PACMAN]);
+            gameBoard.rotateDiv(pacman.pos, 0);
+            gameOver(pacman, gameGrid);
+        }
+    }
 }
 
 function gameLoop(pacman, ghosts) {
     gameBoard.moveCharacter(pacman);
+    checkCollision(pacman, ghosts);
 
     ghosts.forEach((ghost) => gameBoard.moveCharacter(ghost));
+    checkCollision(pacman, ghosts);
 }
 
 function startGame() {
