@@ -1,11 +1,16 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 * {
   box-sizing: border-box;
 }
 
 body {
   background: url('./images/pacman_cabaret2.png') no-repeat center center fixed;
-  background-size: cover;
+  background-size: 52rem 40rem;
   background-color: black;
+  height: 100%;
+  margin: 0;
 }
 
 #wrapper {
@@ -46,17 +51,40 @@ body {
   height: 50px;
   border: 5px darkblue solid;
   background: black;
-  margin-top: 20px;
+  margin-top: 10px;
   color: white;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Press Start 2P', cursive;
   font-size: 2rem;
 }
 
 #start-button {
-  margin-top: 20px;
-  color: black;
-  background-color: #ffff00;
+  font-family: 'Press Start 2P', cursive;
+  cursor: pointer;
+  margin-top: 2px;
+  color: #ffff00;
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  top: 21.2rem;
+  z-index: 1;
 }
+
+@keyframes zoominoutsinglefeatured {
+  0% {
+      transform: scale(2,2);
+  }
+  50% {
+      transform: scale(1.2,1.2);
+  }
+  100% {
+      transform: scale(2,2);
+  }
+}
+
+#start-button {
+animation: zoominoutsinglefeatured 3s infinite ;
+}
+
 
 .hide {
   display: none;
