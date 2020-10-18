@@ -38,20 +38,20 @@ function playAudio(audio) {
 
 function gameOver(pacman, grid) {
     playAudio(soundGameOver);
-    document.removeEventListener('keydown', e => 
-        pacman.handleKeyInput(e, gameBoard.objectExist)
-        )
 
+    document.removeEventListener('keydown', (e) =>
+    pacman.handleKeyInput(e, gameBoard.objectExist.bind(gameBoard))
+    );
         gameBoard.showGameStatus(gameWin);
 
         clearInterval(timer);
 
-        startButton.classList.remove('hide')
+       startButton.classList.remove('hide');
 
 }
 
 function checkCollision(pacman, ghosts) {
-    const collidedGhost = ghosts.find( ghost => pacman.pos === ghost.pos);
+    const collidedGhost = ghosts.find((ghost) => pacman.pos === ghost.pos);
     if (collidedGhost) {
         // pacman eats ghost
         if (pacman.powerPill) {
@@ -105,7 +105,7 @@ function gameLoop(pacman, ghosts) {
     // change ghost scare mode depending on powerPill
     if (pacman.powerPill !== powerPillActive) {
         powerPillActive = pacman.powerPill;
-        ghosts.forEach(ghost => (ghost.isScared = pacman.powerPill));
+        ghosts.forEach((ghost) => (ghost.isScared = pacman.powerPill));
     }
 
     // check if all dots have been eaten
@@ -130,7 +130,7 @@ function startGame() {
 
     gameBoard.createGrid(LEVEL);
 
-    const pacman = new Pacman(2, 287);
+    const pacman = new Pacman(2, 388);
     gameBoard.addObject(388, [OBJECT_TYPE.PACMAN]);
     document.addEventListener('keydown', (e) => 
         pacman.handleKeyInput(e, gameBoard.objectExist.bind(gameBoard))
@@ -141,7 +141,7 @@ function startGame() {
         new Ghost(6, 200, randomMovement, OBJECT_TYPE.BLINKY),
         new Ghost(2, 199, randomMovement, OBJECT_TYPE.PINKY),
         new Ghost(3, 198, randomMovement, OBJECT_TYPE.INKY),
-        new Ghost(2, 197, randomMovement, OBJECT_TYPE.CLYDE),
+        new Ghost(2, 197, randomMovement, OBJECT_TYPE.CLYDE)
     ];
 
     // Gameloop
