@@ -19,8 +19,8 @@ const gameBoard = GameBoard.createGameBoard(gameGrid, LEVEL);
 let score = 0;
 let timer = null;
 let gameWin = false;
-let PowerPillActive = false;
-let PowerPillTimer = null;
+let powerPillActive = false;
+let powerPillTimer = null;
 
 function gameOver(pacman, grid) {
     document.removeEventListener('keydown', e => 
@@ -38,7 +38,7 @@ function gameOver(pacman, grid) {
 function checkCollision(pacman, ghosts) {
     const collidedGhost = ghosts.find( ghost => pacman.pos === ghost.pos);
     if (collidedGhost) {
-        if (pacman.PowerPill) {
+        if (pacman.powerPill) {
             gameBoard.removeObject(collidedGhost.pos, [
                 OBJECT_TYPE.GHOST,
                 OBJECT_TYPE.SCARED,
@@ -60,11 +60,47 @@ function gameLoop(pacman, ghosts) {
 
     ghosts.forEach((ghost) => gameBoard.moveCharacter(ghost));
     checkCollision(pacman, ghosts);
+
+    // Check if pacman eats a dot
+    if (gameBoard.objectExist(pacman.pos, OBJECT_TYPE.DOT)) {
+        gameBoard.removeObject(pacman.pos, [OBJECT_TYPE.DOT]);
+        gameBoard.dotCount--;
+        score += 10; // For every dot that is eaten gives 10 points
+    }
+    // Check if pacman eats a powerPill
+    if (gameBoard.objectExist(pacman.pos, OBJECT_TYPE.PILL)) {
+        gameBoard.removeObject(pacman.pos, [OBJECT_TYPE.PILL]);
+
+        pacman.powerPill = true;
+        score += 50; // For every powerPill that is eaten gives 50 points
+
+        clearTimeout(powerPillTimer);
+        powerPillTimer = setTimeout(
+            () => (pacman.powerPill = false),
+            POWER_PILL_TIME
+        ); 
+    }
+
+    // change ghost scare mode depending on powerPill
+    if (pacman.powerPill !== powerPillActive) {
+        powerPillActive = pacman.powerPill;
+        ghosts.forEach(ghost => (ghost.isScared = pacman.powerPill));
+    }
+
+    // check if all dots have been eaten
+    if (gameBoard.dotCount === 0) {
+        gameWin = true;
+        gameOver(pacman, gameGrid);
+    }
+
+    // show the score
+    scoreTable.innerHTML = score;
+
 }
 
 function startGame() {
     gameWin = false;
-    PowerPillActive = false;
+    powerPillActive = false;
     score = 0;
 
     startButton.classList.add('hide');
