@@ -6,7 +6,7 @@
 }
 
 body {
-  background: url('./images/pacman_cabaret2.png') no-repeat center center fixed;
+  background: url('/pacman_cabaret2.60acbfb3.png') no-repeat center center fixed;
   background-size: 52rem 40rem;
   background-color: black;
   height: 100%;
@@ -251,3 +251,5 @@ body {
     );
   }
 }
+
+/*# sourceMappingURL=/style.c61ab535.css.map */
