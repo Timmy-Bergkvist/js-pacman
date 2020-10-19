@@ -2,7 +2,7 @@
   "name": "js-pacman",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "pacman.js",
   "homepage": "https://timmy-bergkvist.github.io/js-pacman",
   "scripts": {
     "start": "parcel index.html",
