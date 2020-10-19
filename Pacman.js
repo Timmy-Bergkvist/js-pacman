@@ -133,7 +133,7 @@ class Ghost {
 // ==========================================================================
 
 // Random movement
-export function randomMovement(position, direction, objectExist) {
+function randomMovement(position, direction, objectExist) {
     let dir = direction;
     let nextMovePos = position + dir.movement;
     // Change an array from the direction object keys
@@ -235,9 +235,9 @@ class Pacman {
 //@line 1 "src/setup.js"
 // ==========================================================================
 
-export const GRID_SIZE = 21;
-export const CELL_SIZE = 20;
-export const DIRECTIONS = {
+const GRID_SIZE = 21;
+const CELL_SIZE = 20;
+const DIRECTIONS = {
   ArrowLeft: {
     code: 37,
     movement: -1,
@@ -260,7 +260,7 @@ export const DIRECTIONS = {
   }
 };
 
-export const OBJECT_TYPE = {
+const OBJECT_TYPE = {
   BLANK: 'blank',
   WALL: 'wall',
   WALLUR: 'wallur', // ur = Up right
@@ -284,7 +284,7 @@ export const OBJECT_TYPE = {
 };
 
 // Lookup array for classes
-export const CLASS_LIST = [
+const CLASS_LIST = [
   OBJECT_TYPE.BLANK, // = 0
   OBJECT_TYPE.WALL, // = 1
   OBJECT_TYPE.DOT, // = 2
@@ -306,7 +306,7 @@ export const CLASS_LIST = [
 ];
 
 // prettier-ignore
-export const LEVEL = [
+const LEVEL = [
   11, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 10,
   1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1,
   1, 2, 11, 10, 2, 11, 1, 1, 10, 2, 1, 2, 11, 1, 1, 10, 2, 11, 10, 2, 1,
@@ -387,7 +387,7 @@ function checkCollision(pacman, ghosts) {
     if (collidedGhost) {
         // pacman eats ghost
         if (pacman.powerPill) {
-            playAudio(soundGhost);
+            soundGhost.play();
             gameBoard.removeObject(collidedGhost.pos, [
                 OBJECT_TYPE.GHOST,
                 OBJECT_TYPE.SCARED,
@@ -412,7 +412,7 @@ function gameLoop(pacman, ghosts) {
 
     // Check if pacman eats a dot
     if (gameBoard.objectExist(pacman.pos, OBJECT_TYPE.DOT)) {
-        playAudio(soundDot);
+        soundDot.play();
 
         gameBoard.removeObject(pacman.pos, [OBJECT_TYPE.DOT]);
         gameBoard.dotCount--;
@@ -420,7 +420,7 @@ function gameLoop(pacman, ghosts) {
     }
     // Check if pacman eats a powerPill
     if (gameBoard.objectExist(pacman.pos, OBJECT_TYPE.PILL)) {
-        playAudio(soundPill);
+        soundPill.play();
 
         gameBoard.removeObject(pacman.pos, [OBJECT_TYPE.PILL]);
 
@@ -452,7 +452,7 @@ function gameLoop(pacman, ghosts) {
 }
 
 function startGame() {
-    playAudio(soundGameStart);
+    soundGameStart.play();
 
     gameWin = false;
     powerPillActive = false;
