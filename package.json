@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "pacman.js",
-  "homepage": "https://timmy-bergkvist.github.io/js-pacman",
   "scripts": {
     "start": "parcel index.html",
     "build": "parcel build index.html",
