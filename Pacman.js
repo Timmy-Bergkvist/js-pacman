@@ -361,12 +361,6 @@ let soundGameStart = new Audio('./sounds/game_start.wav');
 let soundGameOver  = new Audio('./sounds/death.wav');
 
 
-function playAudio(audio) {
-    const soundEffect = new Audio(audio);
-    soundEffect.play();
-}
-
-
 
 function gameOver(pacman, grid) {
     soundGameOver.play();
