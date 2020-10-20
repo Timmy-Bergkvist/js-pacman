@@ -2,14 +2,14 @@
   "name": "js-pacman",
   "version": "1.0.0",
   "description": "",
-  "main": "pacman.js",
+  "main": "index.js",
   "scripts": {
     "start": "parcel index.html",
     "build": "parcel build index.html",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "rm -rf dist/ && npm run build && gh-pages -d dist"
   },
+  "homepage": "https://timmy-bergkvist.github.io/js-pacman/",
   "keywords": [],
   "author": "",
   "license": "ISC",

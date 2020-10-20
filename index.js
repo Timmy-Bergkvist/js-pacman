@@ -1,17 +1,17 @@
-import { LEVEL, OBJECT_TYPE } from './setup';
-import { randomMovement } from './ghostmoves';
+import { LEVEL, OBJECT_TYPE } from './src/setup';
+import { randomMovement } from './src/ghostmoves';
 
 // Classes
-import GameBoard from './GameBoard';
-import Pacman from './Pacman';
-import Ghost from './Ghost';
+import GameBoard from './src/GameBoard';
+import Pacman from './src/Pacman';
+import Ghost from './src/Ghost';
 
 // Sounds
-import soundDot from '../sounds/munch.wav';
-import soundPill from '../sounds/pill.wav';
-import soundGameStart from '../sounds/game_start.wav';
-import soundGameOver from '../sounds/death.wav';
-import soundGhost from '../sounds/eat_ghost.wav';
+import soundDot from './sounds/munch.wav';
+import soundPill from './sounds/pill.wav';
+import soundGameStart from './sounds/game_start.wav';
+import soundGameOver from './sounds/death.wav';
+import soundGhost from './sounds/eat_ghost.wav';
 
 // DOM Element
 const gameGrid = document.querySelector('#game');
