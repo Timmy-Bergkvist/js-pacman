@@ -1,13 +1,15 @@
 # JS Pacman
 A javascript Pacman game.
 
-![Image of game](https://timmy-bergkvist.github.io/js-pacman/images/game_overview.jpg)
+![Image of game](https://drive.google.com/uc?export=view&id=1uf3-BsNwsUkaJoNsshzKgZyr9nD2LXnt)
 
-To play the game download the code and type in npm start.
-Click start game and use the arrow buttons to move pacman.
+:joystick: Play the game here:
+https://timmy-bergkvist.github.io/js-pacman/
 
 
 ## Technologies Used
+
+- <a href="https://parceljs.org/" target="_blank"> Parcel </a>
 
 - <a href="https://en.wikipedia.org/wiki/HTML" target="_blank"> Html </a>
 
