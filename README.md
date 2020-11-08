@@ -1,7 +1,7 @@
 # JS Pacman
 A javascript Pacman game.
 
-This project was part of a course from <a href="https://www.youtube.com/channel/UC29ju8bIPH5as8OGnQzwJyA" target="_blank"> Traversy Media. </a>
+This project is part of a course from <a href="https://www.youtube.com/channel/UC29ju8bIPH5as8OGnQzwJyA" target="_blank"> Traversy Media. </a>
 
 
 ![Image of game](https://res.cloudinary.com/dpctylyfk/image/upload/v1603282950/samples/game_overview_zydfot.jpg)
